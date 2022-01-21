@@ -4,7 +4,7 @@
 //jQuery.noConflict();
 
 time = document.querySelector("#date_arrival > span");
-button = document.getElementById("troop_confirm_go");
+button = document.getElementById("troop_confirm_submit");
 
 date = "dzisiaj o 15:01:28"   // wprowadź czas dojścia ataku, który pokrywa się z wartością w linii "Przybycie:" w ekranie potwierdzenia ataku
 milis = 555                   // wprowadź milisekundę, w której ma wejść atak
