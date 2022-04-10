@@ -20,6 +20,7 @@ wall - mur
 //Deklaracja kolejki budowy, składnia: "<nazwa_budynku>_<poziom> ..."
 const queue = "garage_5 market_12"
 
+//https://stackoverflow.com/a/39914235
 function mysleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
