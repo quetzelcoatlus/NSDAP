@@ -18,7 +18,7 @@ wall - mur
 */
 
 //Deklaracja kolejki budowy, składnia: "<nazwa_budynku>_<poziom> ..."
-queue = "garage_5 market_12"
+const queue = "garage_5 market_12"
 
 function mysleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
