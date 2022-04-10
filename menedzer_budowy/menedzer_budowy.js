@@ -26,7 +26,7 @@ function mysleep(ms) {
 
 for (const e of queue.split(' ')) {
     console.log(e)
-    while(!document.querySelector("#main_buildrow_" + e.split('_')[0] + " > td.build_options > span").innerHTML.match(/0:00:02/g) && 
+    while(!document.querySelector("#main_buildrow_" + e.split('_')[0] + " > td.build_options > span").innerHTML.match(/0:00:0[0-9]/g) && 
           !document.querySelector("#main_buildrow_" + e.split('_')[0] + " > td.build_options > span").innerHTML == '') {
         console.log("Waiting 1 min for next check");
         await mysleep(60000);
