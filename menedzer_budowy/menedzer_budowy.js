@@ -33,7 +33,7 @@ for (const e of queue.split(' ')) {
     }
     console.log("Waiting 3 seconds for resources");
     await mysleep(3000);
-    console.log("click");
+    console.log("Building " + e.split('_')[0] + " to level " + e.split('_')[1]);
     document.getElementById("main_buildlink_" + e).click();
     console.log("Waiting 3 seconds to let page refresh");
     await mysleep(3000);
