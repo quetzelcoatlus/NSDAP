@@ -111,10 +111,12 @@ var units = {
 	6: 'heavy'
 };
 
-var units_capacity = [25,15,10,10,80,50,50];
-var to_send = [0,0,0,0,0,0,0];
+
 
 function main() {
+	var units_capacity = [25,15,10,10,80,50,50];
+	var to_send = [0,0,0,0,0,0,0];
+	
     var doc=document;
     url=doc.URL;
     if(url.indexOf('screen=place')==-1 || url.indexOf('mode=scavenge')==-1)
@@ -240,7 +242,8 @@ function mysleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
+settings.archers = "0"
+settings.skip_level_1 = "1"
 
 for(var a=0; a<10; a++){
 	var unfree = document.getElementsByClassName('btn btn-default free_send_button btn-disabled');
@@ -252,6 +255,7 @@ for(var a=0; a<10; a++){
         document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(" + i + ") > div.status-specific > div > div.action-container > a.btn.btn-default.free_send_button").click()
         await mysleep(1000);
     }
+	
     var time_left = document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(2) > div.status-specific > div > ul > li:nth-child(4) > span.return-countdown").innerHTML
     let ms = Number(time_left.split(':')[0]) * 60 * 60 * 1000 + Number(time_left.split(':')[1]) * 60 * 1000 + 60000;
     console.log("Waiting " + time_left + " (" + ms + " miliseconds)")
