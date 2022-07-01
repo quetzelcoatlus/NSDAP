@@ -1,4 +1,4 @@
-var levels = [2,3];  //poziomy zbieractwa z aktywnym zbieraniem
+var levels = [2,3];  //wpisz poziomy zbieractwa, które mają być odświeżane i JUŻ są aktywne z równym podziałem wojska
 
 //https://stackoverflow.com/a/39914235
 async function mysleep(ms) {
