@@ -238,7 +238,7 @@ function main() {
 }
 
 //https://stackoverflow.com/a/39914235
-function mysleep(ms) {
+async function mysleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
