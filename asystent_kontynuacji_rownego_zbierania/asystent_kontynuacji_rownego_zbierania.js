@@ -1,4 +1,5 @@
-var levels = [2,3];  //wpisz poziomy zbieractwa, które mają być odświeżane i JUŻ są aktywne z równym podziałem wojska
+var levels = [2,3,4];  //wpisz poziomy zbieractwa, które mają być odświeżane i JUŻ są aktywne z równym podziałem wojska
+var units = [1,2]; //jednostki do zaznaczania w zbieractwie: 1-pik, 2-miecz, 3-topór, itd.
 
 //https://stackoverflow.com/a/39914235
 async function mysleep(ms) {
@@ -28,9 +29,12 @@ for (var a=0; a<40; a++){
     console.log("Waiting " + time + " (" + min + " miliseconds) for level " + choose + " scavenge. [" + new Date().toLocaleString() + "]");
     await mysleep(min);
     
-    console.log("Selecting all troops");
-    document.querySelector("#scavenge_screen > div > div.candidate-squad-container > table > tbody > tr:nth-child(2) > td.squad-village-required > a").click();
-    await mysleep(1000);
+    for (unit of units){
+        console.log("Selecting troops " + unit);
+        document.querySelector("#scavenge_screen > div > div.candidate-squad-container > table > tbody > tr:nth-child(2) > td:nth-child(" + unit + ") > a").click()
+        await mysleep(1000);
+    }
+    //document.querySelector("#scavenge_screen > div > div.candidate-squad-container > table > tbody > tr:nth-child(2) > td.squad-village-required > a").click();
     console.log("Sending troops for " + choose + " level scavenge.");
     document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(" + choose + ") > div.status-specific > div > div.action-container > a.btn.btn-default.free_send_button").click();
     await mysleep(1000);
