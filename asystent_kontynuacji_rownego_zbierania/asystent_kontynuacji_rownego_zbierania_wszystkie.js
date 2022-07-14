@@ -30,7 +30,7 @@ for (var a=0; a<40; a++){
     
     console.log("Selecting all troops.");
     document.querySelector("#scavenge_screen > div > div.candidate-squad-container > table > tbody > tr:nth-child(2) > td.squad-village-required > a").click();
-    await mysleep(1000);  
+    await mysleep(3000);  
     
     console.log("Sending troops for " + choose + " level scavenge.");
     document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(" + choose + ") > div.status-specific > div > div.action-container > a.btn.btn-default.free_send_button").click();
