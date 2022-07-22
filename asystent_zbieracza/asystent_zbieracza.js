@@ -255,8 +255,9 @@ for(var a=0; a<10; a++){
         document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(" + i + ") > div.status-specific > div > div.action-container > a.btn.btn-default.free_send_button").click()
         await mysleep(1000);
     }
-	
-    var time_left = document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(2) > div.status-specific > div > ul > li:nth-child(4) > span.return-countdown").innerHTML
+    
+    let first_level = Number(settings.skip_level_1) + 1;
+    var time_left = document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(" + first_level + " ) > div.status-specific > div > ul > li:nth-child(4) > span.return-countdown").innerHTML
     let ms = Number(time_left.split(':')[0]) * 60 * 60 * 1000 + Number(time_left.split(':')[1]) * 60 * 1000 + 60000;
     console.log("Waiting " + time_left + " (" + ms + " miliseconds)")
     await mysleep(ms)
