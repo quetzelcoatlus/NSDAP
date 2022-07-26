@@ -243,7 +243,7 @@ async function mysleep(ms) {
 }
 
 settings.archers = "0"
-settings.skip_level_1 = "1"
+settings.skip_level_1 = "0"
 
 for(var a=0; a<10; a++){
 	var unfree = document.getElementsByClassName('btn btn-default free_send_button btn-disabled');
