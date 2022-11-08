@@ -3,21 +3,25 @@ javascript:var settings={max_ressources:"99999",archers:"0",skip_level_1:"1"};va
 
 settings.archers = "0"
 settings.skip_level_1 = "0"
+settings_spear.untouchable = "500"
+settings_sword.untouchable = "500"
+settings_light.max_unit_number = "10"
 
-for(var a=0; a<10; a++){
+for(var a=0; a<20; a++){
 	var unfree = document.getElementsByClassName('btn btn-default free_send_button btn-disabled');
 	var unlocked = document.getElementsByClassName('btn btn-default free_send_button');
 	var free = unlocked.length - unfree.length;
 	
     for (var i=free; i>settings.skip_level_1; i--) {
         main()
+		await mysleep(100);
         document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(" + i + ") > div.status-specific > div > div.action-container > a.btn.btn-default.free_send_button").click()
         await mysleep(500);
     }
     
     let first_level = Number(settings.skip_level_1) + 1;
     var time_left = document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(" + first_level + " ) > div.status-specific > div > ul > li:nth-child(4) > span.return-countdown").innerHTML
-    let ms = Number(time_left.split(':')[0]) * 60 * 60 * 1000 + Number(time_left.split(':')[1]) * 60 * 1000 + 60000;
+    let ms = Number(time_left.split(':')[0]) * 60 * 60 * 1000 + Number(time_left.split(':')[1]) * 60 * 1000 +  Number(time_left.split(':')[2]) * 1000 + 10000;
     console.log("Waiting " + time_left + " (" + ms + " miliseconds)")
     await mysleep(ms)
 }
