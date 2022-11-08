@@ -22,6 +22,6 @@ for(var a=0; a<20; a++){
     let first_level = Number(settings.skip_level_1) + 1;
     var time_left = document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(" + first_level + " ) > div.status-specific > div > ul > li:nth-child(4) > span.return-countdown").innerHTML
     let ms = Number(time_left.split(':')[0]) * 60 * 60 * 1000 + Number(time_left.split(':')[1]) * 60 * 1000 +  Number(time_left.split(':')[2]) * 1000 + 10000;
-    console.log("Waiting " + time_left + " (" + ms + " miliseconds)")
+    console.log("Waiting " + time_left + " (" + ms + " miliseconds).")
     await mysleep(ms)
 }
