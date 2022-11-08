@@ -5,16 +5,16 @@ settings.archers = "0"
 settings.skip_level_1 = "0"
 settings_spear.untouchable = "500"
 settings_sword.untouchable = "500"
-settings_light.max_unit_number = "10"
+settings_light.max_unit_number = "0"
 
 for(var a=0; a<20; a++){
-	var unfree = document.getElementsByClassName('btn btn-default free_send_button btn-disabled');
-	var unlocked = document.getElementsByClassName('btn btn-default free_send_button');
-	var free = unlocked.length - unfree.length;
+    var unfree = document.getElementsByClassName('btn btn-default free_send_button btn-disabled');
+    var unlocked = document.getElementsByClassName('btn btn-default free_send_button');
+    var free = unlocked.length - unfree.length;
 	
     for (var i=free; i>settings.skip_level_1; i--) {
         main()
-		await mysleep(100);
+        await mysleep(100);
         document.querySelector("#scavenge_screen > div > div.options-container > div:nth-child(" + i + ") > div.status-specific > div > div.action-container > a.btn.btn-default.free_send_button").click()
         await mysleep(500);
     }
