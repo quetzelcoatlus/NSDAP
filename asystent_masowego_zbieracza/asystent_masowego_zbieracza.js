@@ -7,14 +7,14 @@ function mysleep(ms) {
 }
 
 function fill(unit, number) {
-	let field = $(`[name=${unit}]`);
-	number = Number(number);
-	field.trigger('focus');
-	field.trigger('keydown');
-	field.val(number);
-	field.trigger('keyup');
-	field.trigger('change');
-	field.blur();
+    let field = $(`[name=${unit}]`);
+    number = Number(number);
+    field.trigger('focus');
+    field.trigger('keydown');
+    field.val(number);
+    field.trigger('keyup');
+    field.trigger('change');
+    field.blur();
 }
 
 for(var k=0; k<10; k++){
@@ -34,6 +34,6 @@ for(var k=0; k<10; k++){
     }
     var time_left = document.querySelector("#scavenge_mass_screen > div > div.options-container > div:nth-child(4) > div.status-specific > div > div.squad-preview > ul > li.duration-section > span.duration").innerHTML;
     let ms = Number(time_left.split(':')[0]) * 60 * 60 * 1000 + Number(time_left.split(':')[1]) * 60 * 1000 + Number(time_left.split(':')[2]) * 1000 + 5000;
-    console.log("Waiting " + time_left + " ( " + ms + " miliseconds).");
+    console.log("Waiting " + time_left + " (" + ms + " miliseconds).");
     await mysleep(ms);
 }
