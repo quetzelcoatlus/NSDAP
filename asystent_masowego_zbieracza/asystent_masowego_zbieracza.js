@@ -1,23 +1,39 @@
-spears = "1300"
+var units = [
+    ["spear", 750, 300, 150, 100]
+];
 
 function mysleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-for(var i=0; i<4; i++){
-    if(document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody").children[1].children[4].className == 'option option-4 option-inactive'){
-        document.querySelector("#scavenge_mass_screen > div > div.candidate-squad-container > table > tbody > tr:nth-child(2) > td:nth-child(1) > input").value=spears/13
-        document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody > tr:nth-child(1) > td:nth-child(5) > input").checked=true
-    } else if(document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody").children[1].children[3].className == 'option option-3 option-inactive'){
-        document.querySelector("#scavenge_mass_screen > div > div.candidate-squad-container > table > tbody > tr:nth-child(2) > td:nth-child(1) > input").value=spears/13*1.5
-        document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody > tr:nth-child(1) > td:nth-child(4) > input").checked=true
-    } else if(document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody").children[1].children[2].className == 'option option-2 option-inactive'){
-        document.querySelector("#scavenge_mass_screen > div > div.candidate-squad-container > table > tbody > tr:nth-child(2) > td:nth-child(1) > input").value=spears/13*3
-        document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody > tr:nth-child(1) > td:nth-child(3) > input").checked=true
-    } else if(document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody").children[1].children[1].className == 'option option-1 option-inactive'){
-        document.querySelector("#scavenge_mass_screen > div > div.candidate-squad-container > table > tbody > tr:nth-child(2) > td:nth-child(1) > input").value=spears/13*7.5
-        document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody > tr:nth-child(1) > td:nth-child(2) > input").checked=true
+function fill(unit, number) {
+	let field = $(`[name=${unit}]`);
+	number = Number(number);
+	field.trigger('focus');
+	field.trigger('keydown');
+	field.val(number);
+	field.trigger('keyup');
+	field.trigger('change');
+	field.blur();
+}
+
+for(var k=0; k<10; k++){
+    for(var i=4; i>0; i--){
+        for(var j=0; j<units.length; j++){
+            fill(units[j][0], units[j][i])
+            await mysleep(500);
+        }
+        document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody > tr:nth-child(1) > td:nth-child("+(i+1)+") > input").click()
+        await mysleep(500);
+        document.querySelector("#scavenge_mass_screen > div > div:nth-child(3) > div.buttons-container > a.btn.btn-default.btn-send").click()
+        await mysleep(1000);
     }
-    document.querySelector("#scavenge_mass_screen > div > div.buttons-container > a.btn.btn-default.btn-send").click()
-    await mysleep(3000);
+    for(var j=0; j<units.length; j++){
+        fill(units[j][0], units[j][4])
+        await mysleep(500);
+    }
+    var time_left = document.querySelector("#scavenge_mass_screen > div > div.options-container > div:nth-child(4) > div.status-specific > div > div.squad-preview > ul > li.duration-section > span.duration").innerHTML;
+    let ms = Number(time_left.split(':')[0]) * 60 * 60 * 1000 + Number(time_left.split(':')[1]) * 60 * 1000 + Number(time_left.split(':')[2]) * 1000 + 5000;
+    console.log("Waiting " + time_left + " ( " + ms + " miliseconds).");
+    await mysleep(ms);
 }
