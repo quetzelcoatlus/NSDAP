@@ -1,6 +1,7 @@
 var units = [
-    ["spear", 750, 300, 150, 100]
+    ["spear", 750, 300, 150, 100, 1]
 ];
+
 
 function mysleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -20,7 +21,7 @@ function fill(unit, number) {
 for(var k=0; k<10; k++){
     for(var i=4; i>0; i--){
         for(var j=0; j<units.length; j++){
-            fill(units[j][0], units[j][i])
+            fill(units[j][0], units[j][i] * units[j][5])
             await mysleep(500);
         }
         document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody > tr:nth-child(1) > td:nth-child("+(i+1)+") > input").click()
@@ -29,7 +30,7 @@ for(var k=0; k<10; k++){
         await mysleep(1000);
     }
     for(var j=0; j<units.length; j++){
-        fill(units[j][0], units[j][4])
+        fill(units[j][0], units[j][4] * units[j][5])
         await mysleep(500);
     }
     var time_left = document.querySelector("#scavenge_mass_screen > div > div.options-container > div:nth-child(4) > div.status-specific > div > div.squad-preview > ul > li.duration-section > span.duration").innerHTML;
