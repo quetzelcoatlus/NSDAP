@@ -2,7 +2,7 @@ var units = [
     ["spear", 750, 300, 150, 100, 1]
 ];
 
-var time_left = "0:00:01"
+var time_left = "0:00:-04"
 
 function mysleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
