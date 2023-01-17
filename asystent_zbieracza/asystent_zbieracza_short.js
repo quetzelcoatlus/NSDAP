@@ -5,7 +5,7 @@ settings.archers = "0"
 settings.skip_level_1 = "0"
 //settings_spear.untouchable = "500"
 //settings_sword.untouchable = "500"
-settings_light.max_unit_number = "0"
+//settings_light.max_unit_number = "0"
 
 for(var a=0; a<20; a++){
     var unfree = document.getElementsByClassName('btn btn-default free_send_button btn-disabled');
