@@ -27,7 +27,7 @@ for(var k=0; k<10; k++){
     for(var i=4; i>0; i--){
         for(var j=0; j<units.length; j++){
             fill(units[j][0], units[j][i] * units[j][5])
-            await mysleep(300);
+            await mysleep(500);
         }
         document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody > tr:nth-child(1) > td:nth-child("+(i+1)+") > input").click()
         await mysleep(500);
