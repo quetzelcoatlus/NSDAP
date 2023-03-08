@@ -27,17 +27,12 @@ for(var k=0; k<10; k++){
     for(var i=4; i>0; i--){
         for(var j=0; j<units.length; j++){
             fill(units[j][0], units[j][i] * units[j][5])
-            await mysleep(500);
+            await mysleep(300);
         }
+        var time_left = document.querySelector("#scavenge_mass_screen > div > div.options-container > div:nth-child("+i+") > div.status-specific > div > div.squad-preview > ul > li.duration-section > span.duration").innerHTML;
         document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody > tr:nth-child(1) > td:nth-child("+(i+1)+") > input").click()
-        await mysleep(500);
+        await mysleep(300);
         document.querySelector("#scavenge_mass_screen > div > div:nth-child(3) > div.buttons-container > a.btn.btn-default.btn-send").click()
         await mysleep(300);
     }
-    
-    for(var j=0; j<units.length; j++){
-        fill(units[j][0], units[j][4] * units[j][5])
-        await mysleep(300);
-    }
-    var time_left = document.querySelector("#scavenge_mass_screen > div > div.options-container > div:nth-child(4) > div.status-specific > div > div.squad-preview > ul > li.duration-section > span.duration").innerHTML;
 }
