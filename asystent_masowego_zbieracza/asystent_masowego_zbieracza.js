@@ -33,6 +33,6 @@ for(var k=0; k<10; k++){
         document.querySelector("#scavenge_mass_screen > div > div.villages-container > table > tbody > tr:nth-child(1) > td:nth-child("+(i+1)+") > input").click()
         await mysleep(300);
         document.querySelector("#scavenge_mass_screen > div > div:nth-child(3) > div.buttons-container > a.btn.btn-default.btn-send").click()
-        await mysleep(300);
+        await mysleep(800);
     }
 }
